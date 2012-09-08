@@ -5,6 +5,7 @@ module.exports = function(grunt) {
     lint: {
       all: ["grunt.js", "lib/*.js"]
     },
+
     jshint: {
       options: {
         curly: true,
