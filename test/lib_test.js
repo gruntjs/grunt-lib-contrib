@@ -72,26 +72,29 @@ exports.lib = {
   options: function(test) {
     'use strict';
 
-    test.expect(4);
+    test.expect(5);
 
-    var options = helper.options({nameArgs: 'options_test:subtask'});
-    var options_with_default = helper.options({nameArgs: 'options_test:subtask'}, {required: 'default'});
+    var options = helper.options({name: 'test_task', target: 'target'}, {required: 'default'});
 
-    var actual = options.global;
-    var expected = 'set';
-    test.equal(expected, actual, 'should get params from global options.options_test key');
+    var actual = options.param;
+    var expected = 'target';
+    test.equal(expected, actual, 'should allow target options key to override task');
 
-    actual = options.setting;
-    expected = 'subtask';
-    test.equal(expected, actual, 'should let params from global options.options_test.subtask override options.options_test');
+    actual = options.param2;
+    expected = 'task';
+    test.equal(expected, actual, 'should set default task options that can be overriden by target options');
 
-    actual = options.param;
-    expected = 'override all';
-    test.equal(expected, actual, 'should allow task options key to override all others');
-
-    actual = options_with_default.required;
+    actual = options.required;
     expected = 'default';
     test.equal(expected, actual, 'should allow task to define default values');
+
+    actual = options.template;
+    expected = 'source/';
+    test.equal(expected, actual, 'should automatically process template vars');
+
+    actual = options.data.template;
+    expected = 'source/';
+    test.equal(expected, actual, 'should process template vars recursively');
 
     test.done();
   }

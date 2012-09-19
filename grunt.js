@@ -2,21 +2,22 @@ module.exports = function(grunt) {
   'use strict';
 
   grunt.initConfig({
-    options: {
-      options_test: {
-        param: 'default',
-        setting: 'set',
-        global: 'set',
-        subtask: {
-          setting: 'subtask'
-        }
-      }
+    test_vars: {
+      source: 'source/'
     },
 
-    options_test: {
-      subtask: {
+    test_task: {
+      options: {
+        param: 'task',
+        param2: 'task',
+        template: '<%= test_vars.source %>',
+        data: {
+          template: ['<%= test_vars.source %>']
+        }
+      },
+      target: {
         options: {
-          param: 'override all'
+          param: 'target'
         }
       }
     },
