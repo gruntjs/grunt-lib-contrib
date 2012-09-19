@@ -1,9 +1,28 @@
 module.exports = function(grunt) {
-  "use strict";
+  'use strict';
 
   grunt.initConfig({
+    options: {
+      options_test: {
+        param: 'default',
+        setting: 'set',
+        global: 'set',
+        subtask: {
+          setting: 'subtask'
+        }
+      }
+    },
+
+    options_test: {
+      subtask: {
+        options: {
+          param: 'override all'
+        }
+      }
+    },
+
     lint: {
-      all: ["grunt.js", "lib/*.js", '<config:test.tasks>']
+      all: ['grunt.js', 'lib/*.js', '<config:test.tasks>']
     },
 
     jshint: {
@@ -22,7 +41,7 @@ module.exports = function(grunt) {
         es5: true
       }
     },
-    
+
     // Unit tests.
     test: {
       tasks: ['test/*_test.js']
