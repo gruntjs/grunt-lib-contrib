@@ -15,6 +15,10 @@ This helper is used to take an array of filepaths and find the common base direc
 
 This helper is used to build JS namespace declarations.
 
+#### isIndividualDest(dest)
+
+This helper is used to detect if a destination filepath triggers individual compiling.
+
 #### normalizeMultiTaskFiles(data, target)
 
 This helper is a (temporary) shim to handle multi-task `files` object in the same way grunt v0.4 does.
