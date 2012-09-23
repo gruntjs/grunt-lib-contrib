@@ -1,4 +1,4 @@
-# grunt-contrib-lib
+# grunt-contrib-lib [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-lib.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-lib)
 > Common functionality shared across grunt-contrib tasks.
 
 ### Helper Functions
@@ -45,6 +45,6 @@ Convert an object to an array of CLI arguments, which can be used with `child_pr
 ```
 
 ## Release History
-* 2012/08/24 - v0.2.2 - added findBasePath, buildIndividualDest, optsToArgs. refactored tests. parse templates in options.
+* 2012/08/23 - v0.3.0 - added findBasePath, buildIndividualDest, optsToArgs. refactored tests. parse templates in options.
 * 2012/08/14 - v0.2.1 - Non-destuctive namespace declarations
 * 2012/08/10 - v0.2.0 - Refactored from grunt-contrib into individual repo.
