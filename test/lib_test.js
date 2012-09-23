@@ -101,5 +101,23 @@ exports.lib = {
     test.equal(expected, actual, 'should process template vars recursively');
 
     test.done();
+  },
+  optsToArgs: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var fixture = {
+      key: 'a',
+      key2: 1,
+      key3: true,
+      key4: false,
+      key5: ['a', 'b']
+    };
+    var expected = ['--key', 'a', '--key2', '1', '--key3', '--key5', 'a', '--key5', 'b' ].toString();
+    var actual = helper.optsToArgs(fixture).toString();
+    test.equal(expected, actual, 'should convert object to array of CLI arguments');
+
+    test.done();
   }
 };
