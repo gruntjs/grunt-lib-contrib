@@ -21,6 +21,21 @@ This helper is used to build JS namespace declarations.
 
 This helper is a (temporary) shim to handle multi-task `files` object in the same way grunt v0.4 does.
 
+#### optsToArgs(options)
+
+Convert an object to an array of CLI arguments, which can be used with `child_process.spawn()`.
+
+```js
+// Example
+{
+  fooBar: 'a',        // ['--foo-bar', 'a']
+  fooBar: 1,          // ['--foo-bar', '1']
+  fooBar: true,       // ['--foo-bar']
+  fooBar: false,      //
+  fooBar: ['a', 'b']  // ['--foo-bar', 'a', '--foo-bar', 'b']
+}
+```
+
 ## Release History
 * 2012/08/19 - v0.2.2 - added findBasePath. refactored tests. parse templates in options.
 * 2012/08/14 - v0.2.1 - Non-destuctive namespace declarations
