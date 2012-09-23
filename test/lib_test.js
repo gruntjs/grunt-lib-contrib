@@ -6,11 +6,15 @@ exports.lib = {
     'use strict';
     var path = require('path');
 
-    test.expect(1);
+    test.expect(2);
 
     var actual = helper.findBasePath(['dir1/dir2/dir3/file.js', 'dir1/dir2/another.js', 'dir1/dir2/dir3/dir4/last.js']);
     var expected = path.normalize('dir1/dir2');
     test.equal(expected, actual, 'should detect basePath from array of filepaths.');
+
+    actual = helper.findBasePath(['dir1/dir2/dir3/file.js', 'dir1/dir2/another.js', 'dir1/dir2/dir3/dir4/last.js'], 'dir1');
+    expected = 'dir1';
+    test.equal(expected, actual, 'should default to passed basePath if valid');
 
     test.done();
   },
