@@ -1,6 +1,8 @@
 # grunt-contrib-lib [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-lib.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-lib)
 > Common functionality shared across grunt-contrib tasks.
 
+The purpose of grunt-contrib-lib is to explore solutions to common problems task writers encounter, and to ease the upgrade path for contrib tasks.  **These APIs should be considered highly unstable.  Depend on them at your own risk!**  *Over time, some of the features provided here will be upstreamed to Grunt proper for use by the community at large.*
+
 ### Helper Functions
 
 #### buildIndividualDest(dest, srcFile, basePath, flatten)
