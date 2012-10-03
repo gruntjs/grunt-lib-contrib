@@ -1,3 +1,11 @@
+/*
+ * grunt-contrib-lib
+ * http://gruntjs.com/
+ *
+ * Copyright (c) 2012 Tyler Kellen, contributors
+ * Licensed under the MIT license.
+ */
+
 module.exports = function(grunt) {
   'use strict';
 
