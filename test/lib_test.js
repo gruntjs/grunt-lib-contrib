@@ -6,15 +6,19 @@ exports.lib = {
     'use strict';
     var path = require('path');
 
-    test.expect(2);
+    test.expect(3);
 
-    var actual = helper.findBasePath(['dir1/dir2/dir3/file.js', 'dir1/dir2/another.js', 'dir1/dir2/dir3/dir4/last.js']);
+    var actual = helper.findBasePath(['dir1/dir2/dir3/file.ext', 'dir1/dir2/another.ext', 'dir1/dir2/dir3/dir4/file.ext']);
     var expected = path.normalize('dir1/dir2');
     test.equal(expected, actual, 'should detect basePath from array of filepaths.');
 
-    actual = helper.findBasePath(['dir1/dir2/dir3/file.js', 'dir1/dir2/another.js', 'dir1/dir2/dir3/dir4/last.js'], 'dir1');
+    actual = helper.findBasePath(['dir1/dir2/dir3/file.ext', 'dir1/dir2/another.ext', 'file.ext'], 'dir1');
     expected = 'dir1';
     test.equal(expected, actual, 'should default to passed basePath if valid');
+
+    actual = helper.findBasePath(['.dir1/dir2', '.dir1/dir2/another.ext', '.dir1/dir2/dir3/dir4/file.ext', 'file.ext']);
+    expected = '';
+    test.equal(expected, actual, 'should return empty string if foundPath is a single dot (helps with dotfiles)');
 
     test.done();
   },
