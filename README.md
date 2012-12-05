@@ -10,21 +10,9 @@ _Over time, some of the functionality provided here may be incorporated directly
 
 ### Helper Functions
 
-#### buildIndividualDest(dest, srcFile, basePath, flatten)
-
-This helper is used to build a destination filepath for tasks supporting individual compiling.
-
-#### findBasePath(srcFiles)
-
-This helper is used to take an array of filepaths and find the common base directory.
-
 #### getNamespaceDeclaration(ns)
 
 This helper is used to build JS namespace declarations.
-
-#### isIndividualDest(dest)
-
-This helper is used to detect if a destination filepath triggers individual compiling.
 
 #### normalizeMultiTaskFiles(data, target)
 
