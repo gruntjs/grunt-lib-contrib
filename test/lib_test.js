@@ -2,26 +2,6 @@ var grunt = require('grunt');
 var helper = require('../lib/contrib.js').init(grunt);
 
 exports.lib = {
-  findBasePath: function(test) {
-    'use strict';
-    var path = require('path');
-
-    test.expect(3);
-
-    var actual = helper.findBasePath(['dir1/dir2/dir3/file.ext', 'dir1/dir2/another.ext', 'dir1/dir2/dir3/dir4/file.ext']);
-    var expected = path.normalize('dir1/dir2');
-    test.equal(expected, actual, 'should detect basePath from array of filepaths.');
-
-    actual = helper.findBasePath(['dir1/dir2/dir3/file.ext', 'dir1/dir2/another.ext', 'file.ext'], 'dir1');
-    expected = 'dir1';
-    test.equal(expected, actual, 'should default to passed basePath if valid');
-
-    actual = helper.findBasePath(['.dir1/dir2', '.dir1/dir2/another.ext', '.dir1/dir2/dir3/dir4/file.ext', 'file.ext']);
-    expected = '';
-    test.equal(expected, actual, 'should return empty string if foundPath is a single dot (helps with dotfiles)');
-
-    test.done();
-  },
   getNamespaceDeclaration: function(test) {
     'use strict';
 
@@ -74,35 +54,6 @@ exports.lib = {
     actual = helper.getNamespaceDeclaration("main.[test].[test2]");
     test.equal(expected.namespace, actual.namespace, 'namespace with square brackets incorrect');
     test.equal(expected.declaration, actual.declaration, 'namespace declaration with square brackets incorrect');
-
-    test.done();
-  },
-  options: function(test) {
-    'use strict';
-
-    test.expect(5);
-
-    var options = helper.options({name: 'test_task', target: 'target'}, {required: 'default'});
-
-    var actual = options.param;
-    var expected = 'target';
-    test.equal(expected, actual, 'should allow target options key to override task');
-
-    actual = options.param2;
-    expected = 'task';
-    test.equal(expected, actual, 'should set default task options that can be overriden by target options');
-
-    actual = options.required;
-    expected = 'default';
-    test.equal(expected, actual, 'should allow task to define default values');
-
-    actual = options.template;
-    expected = 'source/';
-    test.equal(expected, actual, 'should automatically process template vars');
-
-    actual = options.data.template;
-    expected = 'source/';
-    test.equal(expected, actual, 'should process template vars recursively');
 
     test.done();
   },

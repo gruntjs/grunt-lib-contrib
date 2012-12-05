@@ -1,7 +1,7 @@
 {
   "name": "grunt-lib-contrib",
   "description": "Common functionality shared across grunt-contrib tasks.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "homepage": "http://github.com/gruntjs/grunt-lib-contrib",
   "author": {
     "name": "Grunt Team",
@@ -21,13 +21,16 @@
     }
   ],
   "engines": {
-    "node": ">= 0.6.0"
+    "node": ">= 0.8.0"
   },
   "scripts": {
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt": "~0.3.15"
+    "grunt-contrib-jshint": "~0.1.0",
+    "grunt-contrib-nodeunit": "~0.1.0",
+    "grunt": "~0.4.0",
+    "grunt-cli": "~0.1.1"
   },
   "main": "lib/contrib"
 }
