@@ -14,16 +14,6 @@ _Over time, some of the functionality provided here may be incorporated directly
 
 This helper is used to build JS namespace declarations.
 
-#### normalizeMultiTaskFiles(data, target)
-
-This helper is a (temporary) shim to handle multi-task `files` object in the same way grunt v0.4 does.
-
-#### options(data, defaults)
-
-This helper is on its way out as grunt v0.4 adds an options helper to the task api. This new helper only supports task and target options (no root level options key) so you should start adjusting your tasks now to be ready for the v0.4 release.
-
-Contrib tasks are in the process of being updated to check for the new helper first.
-
 #### optsToArgs(options)
 
 Convert an object to an array of CLI arguments, which can be used with `child_process.spawn()`.

@@ -57,35 +57,6 @@ exports.lib = {
 
     test.done();
   },
-  options: function(test) {
-    'use strict';
-
-    test.expect(5);
-
-    var options = helper.options({name: 'test_task', target: 'target'}, {required: 'default'});
-
-    var actual = options.param;
-    var expected = 'target';
-    test.equal(expected, actual, 'should allow target options key to override task');
-
-    actual = options.param2;
-    expected = 'task';
-    test.equal(expected, actual, 'should set default task options that can be overriden by target options');
-
-    actual = options.required;
-    expected = 'default';
-    test.equal(expected, actual, 'should allow task to define default values');
-
-    actual = options.template;
-    expected = 'source/';
-    test.equal(expected, actual, 'should automatically process template vars');
-
-    actual = options.data.template;
-    expected = 'source/';
-    test.equal(expected, actual, 'should process template vars recursively');
-
-    test.done();
-  },
   optsToArgs: function(test) {
     'use strict';
 
