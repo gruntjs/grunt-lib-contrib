@@ -98,5 +98,30 @@ exports.lib = {
     test.equal(expected, actual, 'should strip path from a file path and trim it. (deep)');
 
     test.done();
+  },
+  minMaxInfo: function(test) {
+    'use strict';
+    test.expect(1);
+
+    var max = '1234567890';
+    var min = '12345';
+
+    var actual = '';
+    var expected = [
+      'Uncompressed size: 10 bytes.',
+      'Compressed size: 25 bytes gzipped (5 bytes minified).'
+    ].join(grunt.util.linefeed) + grunt.util.linefeed;
+
+    grunt.util.hooker.hook(grunt.log, 'writeln', {
+      pre: function(result) {
+        actual += grunt.log.uncolor(result) + grunt.util.linefeed;
+        return grunt.util.hooker.preempt();
+      }
+    });
+    helper.minMaxInfo(min, max);
+    grunt.util.hooker.unhook(grunt.log, 'writeln');
+
+    test.equal(expected, actual, 'should have logged min and max info.');
+    test.done();
   }
 };

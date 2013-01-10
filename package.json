@@ -27,10 +27,12 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.1.0",
-    "grunt-contrib-nodeunit": "~0.1.0",
-    "grunt": "~0.4.0",
-    "grunt-cli": "~0.1.1"
+    "grunt-contrib-jshint": "~0.1.1rc5",
+    "grunt-contrib-nodeunit": "~0.1.2rc5",
+    "grunt": "~0.4.0rc5"
   },
-  "main": "lib/contrib"
+  "main": "lib/contrib",
+  "dependencies": {
+    "gzip-js": "~0.3.1"
+  }
 }

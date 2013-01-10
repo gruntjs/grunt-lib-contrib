@@ -33,6 +33,21 @@ Strip a path from a path. normalize both paths for best results.
 }
 ```
 
+#### minMaxInfo(min, max)
+
+Helper for logging compressed and uncompressed sizes of strings.
+
+```js
+var max = grunt.file.read('max.js');
+var min = minify(max);
+minMaxInfo(min, max);
+
+// Will print:
+// Uncompressed size: 108 bytes.
+// Compressed size: 82 bytes gzipped (76 bytes minified).
+
+```
+
 --
 
 *Lib submitted by [Tyler Kellen](https://goingslowly.com/).*
