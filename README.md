@@ -18,10 +18,6 @@ This helper is used to build JS namespace declarations.
 
 Convert an object to an array of CLI arguments, which can be used with `child_process.spawn()`.
 
-#### stripPath(pth, strip)
-
-Strip a path from a path. normalize both paths for best results.
-
 ```js
 // Example
 {
@@ -32,6 +28,10 @@ Strip a path from a path. normalize both paths for best results.
   fooBar: ['a', 'b']  // ['--foo-bar', 'a', '--foo-bar', 'b']
 }
 ```
+
+#### stripPath(pth, strip)
+
+Strip a path from a path. normalize both paths for best results.
 
 #### minMaxInfo(min, max)
 
