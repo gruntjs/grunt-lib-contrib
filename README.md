@@ -38,18 +38,18 @@ Strip a path from a path. normalize both paths for best results.
 Helper for logging compressed, uncompressed and gzipped sizes of strings.
 
 #### report
-Choices: `false`, `min`, `gzip`
+Choices: `false`, `'min'`, `'gzip'`
 Default: `false`
 
 Either do not report anything, report only minification result, or report minification and gzip results.
 
-**Important** Including `gzip` results can make this task 5-10x slower depending on the size of the file.
+**Important** Including `'gzip'` results can make this task 5-10x slower depending on the size of the file.
 
 
 ```js
 var max = grunt.file.read('max.js');
 var min = minify(max);
-minMaxInfo(min, max, 'min', 'gzip');
+minMaxInfo(min, max, 'gzip');
 ```
 
 Would print:
