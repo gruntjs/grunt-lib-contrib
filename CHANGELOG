@@ -1,3 +1,7 @@
+v0.6.0:
+  date: 2013-03-14
+  changes:
+    - Change API/reportying style for minMaxInfo
 v0.5.3:
   date: 2013-02-23
   changes:
