@@ -101,16 +101,13 @@ exports.lib = {
   },
   minMaxInfo: function(test) {
     'use strict';
-    test.expect(1);
+    test.expect(3);
 
     var max = new Array(100).join('blah ');
     var min = max.replace(/\s+/g, '');
 
-    var actual = '';
-    var expected = [
-      'Uncompressed size: 495 bytes.',
-      'Compressed size: 36 bytes gzipped (396 bytes minified).'
-    ].join(grunt.util.linefeed) + grunt.util.linefeed;
+    var actual;
+    var expected;
 
     grunt.util.hooker.hook(grunt.log, 'writeln', {
       pre: function(result) {
@@ -118,10 +115,45 @@ exports.lib = {
         return grunt.util.hooker.preempt();
       }
     });
-    helper.minMaxInfo(min, max);
-    grunt.util.hooker.unhook(grunt.log, 'writeln');
 
+    grunt.util.hooker.hook(grunt.log, 'write', {
+      pre: function(result) {
+        actual += grunt.log.uncolor(result);
+        return grunt.util.hooker.preempt();
+      }
+    });
+
+
+    // No reporting option
+    actual = '';
+    expected = '';
+
+    helper.minMaxInfo(min, max);
+    test.equal(expected, actual, 'should not have reported min and max info.');
+
+    // Report minification results
+    actual = '';
+    expected = [
+      'Original: 495 bytes.',
+      'Minified: 396 bytes.'
+    ].join(grunt.util.linefeed) + grunt.util.linefeed;
+
+    helper.minMaxInfo(min, max, 'min');
     test.equal(expected, actual, 'should have logged min and max info.');
+
+    // Report minification and gzip results
+    actual = '';
+    expected = [
+      'Original: 495 bytes.',
+      'Minified: 396 bytes.',
+      'Gzipped:  36 bytes.'
+    ].join(grunt.util.linefeed) + grunt.util.linefeed;
+
+    helper.minMaxInfo(min, max, 'gzip');
+    test.equal(expected, actual, 'should have logged min, max, gzip info.');
+
+    grunt.util.hooker.unhook(grunt.log, 'writeln');
+    grunt.util.hooker.unhook(grunt.log, 'write');
     test.done();
   }
 };
