@@ -155,5 +155,79 @@ exports.lib = {
     grunt.util.hooker.unhook(grunt.log, 'writeln');
     grunt.util.hooker.unhook(grunt.log, 'write');
     test.done();
+  },
+  formatToType: {
+    amd: function(test) {
+
+      'use strict';
+
+      test.expect(2);
+
+      var string = function () { };
+
+      var actual = helper.formatForType(string, 'amd', 'JST', 'test');
+      var expected = 'JST["test"] = function () { };';
+      test.equal(expected, actual, 'should format string to amd with namespace');
+
+      actual = helper.formatForType(string, 'amd');
+      expected = "return function () { }";
+      test.equal(expected, actual, 'should format string to amd');
+
+      test.done();
+    },
+    commonjs: function(test) {
+
+      'use strict';
+
+      test.expect(2);
+
+      var string = function () { };
+
+      var actual = helper.formatForType(string, 'commonjs', 'JST', 'test');
+      var expected = 'JST["test"] = function () { };';
+      test.equal(expected, actual, 'should format string to commonjs with namespace');
+
+      actual = helper.formatForType(string, 'commonjs');
+      expected = "module.exports = function () { }";
+      test.equal(expected, actual, 'should format string to commonjs');
+
+      test.done();
+    },
+    js: function(test) {
+
+      'use strict';
+
+      test.expect(2);
+
+      var string = function () { };
+
+      var actual = helper.formatForType(string, 'js', 'JST', 'test');
+      var expected = 'JST["test"] = function () { };';
+      test.equal(expected, actual, 'should format string to js with namespace');
+
+      actual = helper.formatForType(string, 'js');
+      expected = 'function () { }';
+      test.equal(expected, actual, 'should format string to js');
+
+      test.done();
+    },
+    html: function(test) {
+
+      'use strict';
+
+      test.expect(2);
+
+      var string = function () { };
+
+      var actual = helper.formatForType(string, 'html', 'JST', 'test');
+      var expected = 'function () { }';
+      test.equal(expected, actual, 'should format string to html with namespace');
+
+      actual = helper.formatForType(string, 'html');
+      expected = 'function () { }';
+      test.equal(expected, actual, 'should format string to html');
+
+      test.done();
+    }
   }
 };
