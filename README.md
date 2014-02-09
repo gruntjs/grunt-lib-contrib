@@ -14,21 +14,6 @@ _Over time, some of the functionality provided here may be incorporated directly
 
 This helper is used to build JS namespace declarations.
 
-#### optsToArgs(options)
-
-Convert an object to an array of CLI arguments, which can be used with `child_process.spawn()`.
-
-```js
-// Example
-{
-  fooBar: 'a',        // ['--foo-bar', 'a']
-  fooBar: 1,          // ['--foo-bar', '1']
-  fooBar: true,       // ['--foo-bar']
-  fooBar: false,      //
-  fooBar: ['a', 'b']  // ['--foo-bar', 'a', '--foo-bar', 'b']
-}
-```
-
 #### stripPath(pth, strip)
 
 Strip a path from a path. normalize both paths for best results.
