@@ -116,8 +116,7 @@ exports.lib = {
     // Report minification results
     actual = '';
     expected = [
-      'Original: 495 bytes.',
-      'Minified: 396 bytes.'
+      '495 B → 396 B'
     ].join(grunt.util.linefeed) + grunt.util.linefeed;
 
     helper.minMaxInfo(min, max, 'min');
@@ -126,9 +125,7 @@ exports.lib = {
     // Report minification and gzip results
     actual = '';
     expected = [
-      'Original: 495 bytes.',
-      'Minified: 396 bytes.',
-      'Gzipped:  36 bytes.'
+      '495 B → 396 B → 36 B (gzip)'
     ].join(grunt.util.linefeed) + grunt.util.linefeed;
 
     helper.minMaxInfo(min, max, 'gzip');

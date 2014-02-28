@@ -20,6 +20,8 @@ Strip a path from a path. normalize both paths for best results.
 
 #### minMaxInfo(min, max, report)
 
+**Deprecated. Use [maxmin](https://github.com/sindresorhus/maxmin) instead.**
+
 Helper for logging compressed, uncompressed and gzipped sizes of strings.
 
 #### report

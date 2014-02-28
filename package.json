@@ -21,7 +21,7 @@
     }
   ],
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">=0.8.0"
   },
   "scripts": {
     "test": "grunt test"
@@ -33,7 +33,6 @@
   },
   "main": "lib/contrib",
   "dependencies": {
-    "zlib-browserify": "0.0.3",
-    "chalk": "~0.4.0"
+    "maxmin": "^0.1.0"
   }
 }
