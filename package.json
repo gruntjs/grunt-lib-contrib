@@ -33,6 +33,7 @@
   },
   "main": "lib/contrib",
   "dependencies": {
-    "maxmin": "^0.1.0"
+    "maxmin": "^0.1.0",
+    "strip-path": "^0.1.0"
   }
 }

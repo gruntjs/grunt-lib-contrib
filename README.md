@@ -14,9 +14,11 @@ _Over time, some of the functionality provided here may be incorporated directly
 
 This helper is used to build JS namespace declarations.
 
-#### stripPath(pth, strip)
+#### stripPath(path, stripPath)
 
-Strip a path from a path. normalize both paths for best results.
+**Deprecated. Use [strip-path](https://github.com/sindresorhus/strip-path) instead.**
+
+Strip a path from a path. Normalize both paths for best results.
 
 #### minMaxInfo(min, max, report)
 
