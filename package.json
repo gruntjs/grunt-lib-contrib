@@ -1,7 +1,7 @@
 {
   "name": "grunt-lib-contrib",
   "description": "Common functionality shared across grunt-contrib tasks.",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "homepage": "http://github.com/gruntjs/grunt-lib-contrib",
   "author": {
     "name": "Grunt Team",
