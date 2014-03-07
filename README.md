@@ -43,6 +43,8 @@ Gzipped: 36 bytes.
 
 #### getNamespaceDeclaration(ns)
 
+**Deprecated. Use [nsdeclare](https://www.npmjs.org/package/nsdeclare) instead.**
+
 This helper is used to build JS namespace declarations.
 
 --
